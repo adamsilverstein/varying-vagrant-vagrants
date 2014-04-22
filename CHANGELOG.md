@@ -1,13 +1,31 @@
 # Varying Vagrant Vagrants Changelog
 
-## 1.1-working
+## 1.2-working
+* WordPress: Add `develop_git` to convert the default SVN checkout to Git.
+* PHP: Update to PHP 5.5.x
+* PHP: Remove php-apc and apc.ini. Enable built in opcache.
+* PHP: Start tracking custom php5-fpm.conf file.
+* PHP: Start tracking custom opcache.ini file.
+* PHP: Update to PHPUnit 4.0.x
+* phpMyAdmin: Update to 4.1.12
+* WP-Cli: Add support for autocomplete.
+* VVV Dashboard: Add [Opcache Status](https://github.com/rlerdorf/opcache-status) for opcache monitoring.
+
+## 1.1
+* Transition to [Varying Vagrant Vagrants organization](https://github.com/Varying-Vagrant-Vagrants).
+* Add a CONTRIBUTING document.
+* Add `--allow-root` to all `wp-cli` calls in VVV core.
+* Use a new global composer configuration.
+* Add `zip` as a package during provisioning.
+* Introduce a helpful caveats section.
+* Remove `tcp_nodelay` config in Nginx. Reasoning in 0cce79501.
 
 ## 1.0
-* **Introduce** [Auto Site Setup](https://github.com/10up/varying-vagrant-vagrants/wiki/Auto-site-Setup) during provisioning to allow for easy new project configuration.
+* **Introduce** [Auto Site Setup](https://github.com/varying-vagrant-vagrants/VVV/wiki/Auto-site-Setup) during provisioning to allow for easy new project configuration.
 * **Happy Fix** `vagrant up` after halt meets expectations and no longer requires provisioning to be reapplied.
 * Begin implementing best practices from Google's [shell style guide](http://google-styleguide.googlecode.com/svn/trunk/shell.xml) in our provisioning scripts.
 * Databases can now be dropped in phpMyAdmin. Pro-tip, `drop database wordpress_develop` in phpMyAdmin followed by `vagrant provision` clears your src.wordpress-develop.dev for reinstall.
-* Copy config files instead of linking them. This allows for a nicer `vagrant up` after a `vagrant halt` and treats provisioning more like it should be treated. See [1fbf329](https://github.com/10up/varying-vagrant-vagrants/commit/1fbf32926e69b852d912047da1bfa7c302693b82) for a more detailed commit message.
+* Copy config files instead of linking them. This allows for a nicer `vagrant up` after a `vagrant halt` and treats provisioning more like it should be treated. See [1fbf329](https://github.com/varying-vagrant-vagrants/VVV/commit/1fbf32926e69b852d912047da1bfa7c302693b82) for a more detailed commit message.
 * Allow for `dashboard-custom.php` to override the default dashboard provided by VVV
 * Reduce size of the included `my.cnf` file to exclude unrequired changes. Increase `max_allowed_packet` setting.
 
